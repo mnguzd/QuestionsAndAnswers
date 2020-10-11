@@ -42,7 +42,7 @@ export const AuthProvider: FC = ({ children }) => {
       setAuth0Client(auth0FromHook);
 
       if (
-        window.location.pathname === '/signin-callback' &&
+        window.location.pathname === '/signin-callback/' &&
         window.location.search.indexOf('code=') > -1
       ) {
         await auth0FromHook.handleRedirectCallback();
@@ -76,7 +76,7 @@ export const AuthProvider: FC = ({ children }) => {
         signOut: () =>
           getAuth0ClientFromState().logout({
             client_id: authSettings.client_id,
-            returnTo: window.location.origin + '/signout-callback',
+            returnTo: window.location.origin + '/signout-callback/',
           }),
         loading,
       }}
