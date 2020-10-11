@@ -26,7 +26,7 @@ steps:
   displayName: 'backend publish'
 - task: ArchiveFiles@2
   inputs:
-   rootFolderOrFile: 'backend/bin/Release/netcoreapp3.0/publish'
+   rootFolderOrFile: 'backend/bin/Release/netcoreapp3.1/publish'
    includeRootFolder: false
    archiveType: zip
    archiveFile: '$(Build.ArtifactStagingDirectory)/backend/$(Build.BuildId).zip'
