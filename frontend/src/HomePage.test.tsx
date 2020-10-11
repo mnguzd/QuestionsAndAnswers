@@ -2,9 +2,10 @@ import React from 'react';
 import { render, cleanup, waitForElement } from '@testing-library/react';
 import { HomePage } from './HomePage';
 import { BrowserRouter } from 'react-router-dom';
+
 afterEach(cleanup);
 
-jest.mock('./QuestionData', () => ({
+jest.mock('./QuestionsData', () => ({
   getUnansweredQuestions: jest.fn(() => {
     return Promise.resolve([
       {
@@ -27,6 +28,7 @@ jest.mock('./QuestionData', () => ({
   }),
 }));
 
+// requires 16.9.0-alpha.0
 test('When HomePage first rendered, loading indicator should show', () => {
   let mock: any = jest.fn();
   const { getByText } = render(
@@ -34,6 +36,7 @@ test('When HomePage first rendered, loading indicator should show', () => {
       <HomePage history={mock} location={mock} match={mock} />
     </BrowserRouter>,
   );
+
   const loading = getByText('Loading...');
   expect(loading).not.toBeNull();
 });
@@ -45,7 +48,9 @@ test('When HomePage data returned, it should render questions', async () => {
       <HomePage history={mock} location={mock} match={mock} />
     </BrowserRouter>,
   );
+
   await waitForElement(() => getByText('Title1 test'));
+
   const question2TitleText = getByText('Title2 test');
   expect(question2TitleText).not.toBeNull();
 });

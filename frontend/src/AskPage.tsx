@@ -1,18 +1,8 @@
-import React, { FC, Fragment } from 'react';
+import React from 'react';
 import { Page } from './Page';
 import { Form, required, minLength, Values } from './Form';
 import { Field } from './Field';
-import { postQuestion } from './QuestionData';
-import { useAuth } from './Auth';
-
-export const AuthorizedPage: FC = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-  if (isAuthenticated) {
-    return <Fragment>{children}</Fragment>;
-  } else {
-    return <Page title="You do not have access to this page" />;
-  }
-};
+import { postQuestion } from './QuestionsData';
 
 export const AskPage = () => {
   const handleSubmit = async (values: Values) => {

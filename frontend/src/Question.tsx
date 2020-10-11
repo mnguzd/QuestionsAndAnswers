@@ -1,8 +1,8 @@
+import { FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { FC } from 'react';
-import { QuestionData } from './QuestionData';
-import { gray2, gray3 } from './styles';
+import { QuestionData } from './QuestionsData';
+import { gray2, gray3 } from './Styles';
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -27,7 +27,7 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
           text-decoration: none;
           color: ${gray2};
         `}
-        to={`/questions/${data.questionId}`}
+        to={`questions/${data.questionId}`}
       >
         {data.title}
       </Link>
@@ -41,11 +41,10 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
         `}
       >
         {data.content.length > 50
-          ? `${data.content.substring(0, 70)}...`
+          ? `${data.content.substring(0, 50)}...`
           : data.content}
       </div>
     )}
-
     <div
       css={css`
         font-size: 12px;
@@ -54,7 +53,7 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
       `}
     >
       {`Asked by ${data.userName} on
-    ${data.created.toLocaleDateString()} ${data.created.toLocaleTimeString()}`}
+        ${data.created.toLocaleDateString()} ${data.created.toLocaleTimeString()}`}
     </div>
   </div>
 );

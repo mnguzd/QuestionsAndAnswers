@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj": {
-                "projectPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj"
+              "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj": {
+                "projectPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj": {
+    "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj",
+        "projectUniqueName": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj",
         "projectName": "QandA",
-        "projectPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj",
+        "projectPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj",
         "packagesPath": "C:\\Users\\roman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\obj\\",
+        "outputPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\roman\\AppData\\Roaming\\NuGet\\NuGet.Config",

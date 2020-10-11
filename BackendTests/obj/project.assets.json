@@ -8847,8 +8847,8 @@
     },
     "QandA/1.0.0": {
       "type": "project",
-      "path": "../backend/QandA/QandA.csproj",
-      "msbuildProject": "../backend/QandA/QandA.csproj"
+      "path": "../backend/QandA.csproj",
+      "msbuildProject": "../backend/QandA.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8887,8 +8887,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj": {
-              "projectPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA\\QandA.csproj"
+            "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj": {
+              "projectPath": "C:\\Users\\roman\\Desktop\\Coding\\Projects C#\\QandA\\backend\\QandA.csproj"
             }
           }
         }

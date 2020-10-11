@@ -1,12 +1,11 @@
+import { FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { FC } from 'react';
 import { PageTitle } from './PageTitle';
 
 interface Props {
   title?: string;
 }
-
 export const Page: FC<Props> = ({ title, children }) => (
   <div
     css={css`
@@ -16,7 +15,6 @@ export const Page: FC<Props> = ({ title, children }) => (
     `}
   >
     {title && <PageTitle>{title}</PageTitle>}
-
     {children}
   </div>
 );

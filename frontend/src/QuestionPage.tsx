@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
-import { gray3, gray6 } from './styles';
+import { FC, useState, Fragment, useEffect } from 'react';
 import { Page } from './Page';
 import { RouteComponentProps } from 'react-router-dom';
 import {
@@ -9,8 +7,10 @@ import {
   postAnswer,
   mapQuestionFromServer,
   QuestionDataFromServer,
-} from './QuestionData';
-import { FC, useState, Fragment, useEffect } from 'react';
+} from './QuestionsData';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { gray3, gray6 } from './Styles';
 import { AnswerList } from './AnswerList';
 import { Form, required, minLength, Values } from './Form';
 import { Field } from './Field';
@@ -25,21 +25,9 @@ import { useAuth } from './Auth';
 interface RouteParams {
   questionId: string;
 }
-
 export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
   match,
 }) => {
-  const handleSubmit = async (values: Values) => {
-    const result = await postAnswer({
-      questionId: question!.questionId,
-      content: values.content,
-      userName: 'Fred',
-      created: new Date(),
-    });
-    return { success: result ? true : false };
-  };
-  const { isAuthenticated } = useAuth();
-
   const [question, setQuestion] = useState<QuestionData | null>(null);
 
   const setUpSignalRConnection = async (questionId: number) => {
@@ -51,37 +39,44 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
     connection.on('Message', (message: string) => {
       console.log('Message', message);
     });
-
     connection.on('ReceiveQuestion', (question: QuestionDataFromServer) => {
       console.log('ReceiveQuestion', question);
       setQuestion(mapQuestionFromServer(question));
     });
 
-    try {
-      await connection.start();
-    } catch (err) {
-      console.log(err);
+    async function start() {
+      try {
+        await connection.start();
+      } catch (err) {
+        console.log(err);
+      }
     }
+    await start();
+
     if (connection.state === HubConnectionState.Connected) {
       connection.invoke('SubscribeQuestion', questionId).catch((err: Error) => {
         return console.error(err.toString());
       });
     }
+
     return connection;
   };
-  const cleanUpSignalRConnection = async (
+
+  const cleanUpSignalRConnection = (
     questionId: number,
     connection: HubConnection,
   ) => {
     if (connection.state === HubConnectionState.Connected) {
-      try {
-        await connection.invoke('UnsubscribeQuestion', questionId);
-      } catch (err) {
-        return console.error(err.toString());
-      }
-      connection.off('Message');
-      connection.off('ReceiveQuestion');
-      connection.stop();
+      connection
+        .invoke('UnsubscribeQuestion', questionId)
+        .then(() => {
+          connection.off('Message');
+          connection.off('ReceiveQuestion');
+          connection.stop();
+        })
+        .catch((err: Error) => {
+          return console.error(err.toString());
+        });
     } else {
       connection.off('Message');
       connection.off('ReceiveQuestion');
@@ -101,7 +96,7 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
     if (match.params.questionId) {
       const questionId = Number(match.params.questionId);
       doGetQuestion(questionId);
-      setUpSignalRConnection(questionId).then((con) => {
+      setUpSignalRConnection(questionId).then(con => {
         connection = con;
       });
     }
@@ -113,6 +108,20 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
       }
     };
   }, [match.params.questionId]);
+
+  const handleSubmit = async (values: Values) => {
+    const result = await postAnswer({
+      questionId: question!.questionId,
+      content: values.content,
+      userName: 'Fred',
+      created: new Date(),
+    });
+
+    return { success: result ? true : false };
+  };
+
+  const { isAuthenticated } = useAuth();
+
   return (
     <Page>
       <div
@@ -151,8 +160,8 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
               `}
             >
               {`Asked by ${question.userName} on
-${question.created.toLocaleDateString()}
-${question.created.toLocaleTimeString()}`}
+          ${question.created.toLocaleDateString()} 
+          ${question.created.toLocaleTimeString()}`}
             </div>
             <AnswerList data={question.answers} />
             {isAuthenticated && (

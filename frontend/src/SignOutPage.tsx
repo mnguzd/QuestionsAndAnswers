@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Page } from './Page';
-import { StatusText } from './styles';
+import { StatusText } from './Styles';
 import { useAuth } from './Auth';
 
 type SignoutAction = 'signout' | 'signout-callback';
@@ -11,7 +11,9 @@ interface Props {
 
 export const SignOutPage: FC<Props> = ({ action }) => {
   let message = 'Signing out ...';
+
   const { signOut } = useAuth();
+
   switch (action) {
     case 'signout':
       signOut();
@@ -20,6 +22,7 @@ export const SignOutPage: FC<Props> = ({ action }) => {
       message = 'You successfully signed out!';
       break;
   }
+
   return (
     <Page title="Sign out">
       <StatusText>{message}</StatusText>

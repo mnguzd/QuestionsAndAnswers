@@ -1,8 +1,8 @@
-/** @jsx jsx */
 import { ChangeEvent, FC, useState, FormEvent } from 'react';
-import { UserIcon } from './icons';
+import { UserIcon } from './Icons';
+/** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray1, gray2, gray5 } from './styles';
+import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { useAuth } from './Auth';
 
@@ -56,17 +56,28 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
         box-shadow: 0 3px 7px 0 rgba(110, 112, 114, 0.21);
       `}
     >
-      <Link
-        to="/"
-        css={css`
-          font-size: 24px;
-          font-weight: bold;
-          color: ${gray1};
-          text-decoration: none;
-        `}
-      >
-        Q & A
-      </Link>
+      <div>
+        <Link
+          to="/"
+          css={css`
+            font-size: 24px;
+            font-weight: bold;
+            color: ${gray1};
+            text-decoration: none;
+          `}
+        >
+          Q & A
+        </Link>
+        <span
+          css={css`
+            margin-left: 10px;
+            font-size: 16px;
+            color: ${gray2};
+          `}
+        >
+          {process.env.REACT_APP_ENV || 'development'}
+        </span>
+      </div>
       <form onSubmit={handleSearchSubmit}>
         <input
           type="text"

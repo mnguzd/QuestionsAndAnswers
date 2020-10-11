@@ -26,6 +26,7 @@ export const Auth0Context = createContext<IAuth0Context>({
   signOut: () => {},
   loading: true,
 });
+
 export const useAuth = () => useContext(Auth0Context);
 
 export const AuthProvider: FC = ({ children }) => {
@@ -49,7 +50,6 @@ export const AuthProvider: FC = ({ children }) => {
       }
 
       const isAuthenticatedFromHook = await auth0FromHook.isAuthenticated();
-
       if (isAuthenticatedFromHook) {
         const user = await auth0FromHook.getUser();
         setUser(user);

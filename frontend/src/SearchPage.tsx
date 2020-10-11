@@ -1,9 +1,9 @@
-/** @jsx jsx */
 import { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { Page } from './Page';
 import { QuestionList } from './QuestionList';
-import { searchQuestions, QuestionData } from './QuestionData';
+import { searchQuestions, QuestionData } from './QuestionsData';
+/** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 
 export const SearchPage: FC<RouteComponentProps> = ({ location }) => {

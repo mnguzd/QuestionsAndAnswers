@@ -2,16 +2,12 @@ import { webAPIUrl } from './AppSettings';
 
 export interface HttpRequest<REQB> {
   path: string;
-}
-export interface HttpResponse<RESB> extends Response {
-  parsedBody?: RESB;
-}
-
-export interface HttpRequest<REQB> {
-  path: string;
   method?: string;
   body?: REQB;
   accessToken?: string;
+}
+export interface HttpResponse<RESB> extends Response {
+  parsedBody?: RESB;
 }
 
 export const http = <REQB, RESB>(
@@ -28,19 +24,17 @@ export const http = <REQB, RESB>(
     if (config.accessToken) {
       request.headers.set('authorization', `bearer ${config.accessToken}`);
     }
-
     let response: HttpResponse<RESB>;
     fetch(request)
-      .then((res) => {
+      .then(res => {
         response = res;
         if (res.headers.get('Content-Type') || ''.indexOf('json') > 0) {
           return res.json();
         } else {
           resolve(response);
         }
-        return res.json();
       })
-      .then((body) => {
+      .then(body => {
         if (response.ok) {
           response.parsedBody = body;
           resolve(response);
@@ -48,8 +42,7 @@ export const http = <REQB, RESB>(
           reject(response);
         }
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(err => {
         reject(err);
       });
   });

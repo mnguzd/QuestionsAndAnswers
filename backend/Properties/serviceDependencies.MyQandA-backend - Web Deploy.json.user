@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2020-10-10T14:31:45.8280299Z"
+    }
+  },
+  "parameters": {
+    "MyQandA-backend.resourceGroupName": {
+      "Type": "resourceGroup",
+      "Value": "QandAResources"
+    },
+    "MyQandA-backend.resourceGroupLocation": {
+      "Type": null,
+      "Value": "eastus"
+    },
+    "MyQandA-backend.resourceName": {
+      "Type": null,
+      "Value": "MyQandA-backend"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "2d9e032b-aee3-4e4d-9c93-d4f9e9665312"
+    },
+    "MyQandA-backend.subscriptionId": {
+      "Type": "subscription",
+      "Value": "2d9e032b-aee3-4e4d-9c93-d4f9e9665312"
+    }
+  }
+}

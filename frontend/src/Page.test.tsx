@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { Page } from './Page';
+
 afterEach(cleanup);
 
 test('When the Page component is rendered, it should contain the correct title and content', () => {

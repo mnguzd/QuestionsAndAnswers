@@ -1,8 +1,8 @@
+import { FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { FC } from 'react';
-import { gray5, accent2 } from './styles';
-import { QuestionData } from './QuestionData';
+import { gray5, accent2 } from './Styles';
+import { QuestionData } from './QuestionsData';
 import { Question } from './Question';
 
 interface Props {
@@ -24,7 +24,7 @@ export const QuestionList: FC<Props> = ({ data, renderItem }) => {
         box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
       `}
     >
-      {data.map((question) => (
+      {data.map(question => (
         <li
           key={question.questionId}
           css={css`

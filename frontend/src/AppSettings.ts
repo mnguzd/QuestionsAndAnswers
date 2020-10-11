@@ -1,8 +1,8 @@
 export const server =
   process.env.REACT_APP_ENV === 'production'
-    ? 'https://your-backend.azurewebsites.net'
+    ? 'https://myqanda-backend.azurewebsites.net'
     : process.env.REACT_APP_ENV === 'staging'
-    ? 'https://your-backend-staging.azurewebsites.net'
+    ? 'https://qandastaging.azurewebsites.net'
     : 'https://localhost:44350';
 
 export const webAPIUrl = `${server}/api`;

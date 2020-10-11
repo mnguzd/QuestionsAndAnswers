@@ -1,9 +1,9 @@
-/** @jsx jsx */
 import { FC } from 'react';
-import { AnswerData } from './QuestionData';
+import { AnswerData } from './QuestionsData';
+/** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { Answer } from './Answer';
-import { gray5 } from './styles';
+import { gray5 } from './Styles';
 
 interface Props {
   data: AnswerData[];
@@ -17,7 +17,7 @@ export const AnswerList: FC<Props> = ({ data }) => (
       padding: 0;
     `}
   >
-    {data.map((answer) => (
+    {data.map(answer => (
       <li
         css={css`
           border-top: 1px solid ${gray5};

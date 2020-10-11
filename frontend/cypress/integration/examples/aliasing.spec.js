@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types="Cypress" />
 
 context('Aliasing', () => {
   beforeEach(() => {
@@ -26,6 +26,7 @@ context('Aliasing', () => {
   })
 
   it('.as() - alias a route for later use', () => {
+
     // Alias the route to wait for its response
     cy.server()
     cy.route('GET', 'comments/*').as('getComment')
@@ -36,5 +37,6 @@ context('Aliasing', () => {
 
     // https://on.cypress.io/wait
     cy.wait('@getComment').its('status').should('eq', 200)
+
   })
 })

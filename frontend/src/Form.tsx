@@ -1,6 +1,6 @@
-/** @jsx jsx */
 import { FC, useState, createContext, FormEvent } from 'react';
-import { PrimaryButton, gray5, gray6 } from './styles';
+import { PrimaryButton, gray5, gray6 } from './Styles';
+/** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 
 export interface Values {
@@ -58,8 +58,7 @@ export interface SubmitResult {
 interface Props {
   submitCaption?: string;
   validationRules?: ValidationProp;
-  onSubmit: (values: Values) => Promise<SubmitResult> | void;
-  submitResult?: SubmitResult;
+  onSubmit: (values: Values) => Promise<SubmitResult>;
   successMessage?: string;
   failureMessage?: string;
 }
@@ -69,7 +68,6 @@ export const Form: FC<Props> = ({
   children,
   validationRules,
   onSubmit,
-  submitResult,
   successMessage = 'Success!',
   failureMessage = 'Something went wrong',
 }) => {
@@ -91,7 +89,7 @@ export const Form: FC<Props> = ({
       ? (validationRules[fieldName] as Validation[])
       : ([validationRules[fieldName]] as Validation[]);
     const fieldErrors: string[] = [];
-    rules.forEach((rule) => {
+    rules.forEach(rule => {
       const error = rule.validator(values[fieldName], rule.arg);
       if (error) {
         fieldErrors.push(error);
@@ -108,12 +106,6 @@ export const Form: FC<Props> = ({
       setSubmitting(true);
       setSubmitError(false);
       const result = await onSubmit(values);
-
-      // The result may be passed through as a prop
-      if (result === undefined) {
-        return;
-      }
-
       setErrors(result.errors || {});
       setSubmitError(!result.success);
       setSubmitting(false);
@@ -125,7 +117,7 @@ export const Form: FC<Props> = ({
     const newErrors: Errors = {};
     let haveError: boolean = false;
     if (validationRules) {
-      Object.keys(validationRules).forEach((fieldName) => {
+      Object.keys(validationRules).forEach(fieldName => {
         newErrors[fieldName] = validate(fieldName);
         if (newErrors[fieldName].length > 0) {
           haveError = true;
@@ -135,18 +127,6 @@ export const Form: FC<Props> = ({
     setErrors(newErrors);
     return !haveError;
   };
-
-  const disabled = submitResult
-    ? submitResult.success
-    : submitting || (submitted && !submitError);
-
-  const showError = submitResult
-    ? !submitResult.success
-    : submitted && submitError;
-
-  const showSuccess = submitResult
-    ? submitResult.success
-    : submitted && !submitError;
 
   return (
     <FormContext.Provider
@@ -165,7 +145,7 @@ export const Form: FC<Props> = ({
     >
       <form noValidate={true} onSubmit={handleSubmit}>
         <fieldset
-          disabled={disabled}
+          disabled={submitting || (submitted && !submitError)}
           css={css`
             margin: 10px auto 0 auto;
             padding: 30px;
@@ -186,7 +166,7 @@ export const Form: FC<Props> = ({
           >
             <PrimaryButton type="submit">{submitCaption}</PrimaryButton>
           </div>
-          {showError && (
+          {submitted && submitError && (
             <p
               css={css`
                 color: red;
@@ -195,7 +175,7 @@ export const Form: FC<Props> = ({
               {failureMessage}
             </p>
           )}
-          {showSuccess && (
+          {submitted && !submitError && (
             <p
               css={css`
                 color: green;

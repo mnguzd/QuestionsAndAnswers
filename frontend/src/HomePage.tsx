@@ -1,9 +1,9 @@
-/** @jsx jsx */
 import { useEffect, useState, FC } from 'react';
+/** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { PrimaryButton } from './styles';
+import { PrimaryButton } from './Styles';
 import { QuestionList } from './QuestionList';
-import { getUnansweredQuestions, QuestionData } from './QuestionData';
+import { getUnansweredQuestions, QuestionData } from './QuestionsData';
 import { Page } from './Page';
 import { PageTitle } from './PageTitle';
 import { RouteComponentProps } from 'react-router-dom';

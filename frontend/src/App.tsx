@@ -1,21 +1,20 @@
-/** @jsx jsx */
-import { lazy, Suspense } from 'react';
-import { css, jsx } from '@emotion/core';
+import React, { lazy, Suspense } from 'react';
 import { HeaderWithRouter as Header } from './Header';
 import { HomePage } from './HomePage';
-import { fontFamily, fontSize, gray2 } from './styles';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { fontFamily, fontSize, gray2 } from './Styles';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { SearchPage } from './SearchPage';
 import { SignInPage } from './SignInPage';
-import { QuestionPage } from './QuestionPage';
-import { NotFoundPage } from './NotFoundPage';
 import { SignOutPage } from './SignOutPage';
+import { NotFoundPage } from './NotFoundPage';
+import { QuestionPage } from './QuestionPage';
 import { AuthProvider } from './Auth';
-import { AuthorizedPage } from './AskPage';
-
+import { AuthorizedPage } from './AuthorizedPage';
 const AskPage = lazy(() => import('./AskPage'));
 
-function App() {
+const App: React.FC = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -72,6 +71,6 @@ function App() {
       </BrowserRouter>
     </AuthProvider>
   );
-}
+};
 
 export default App;

@@ -123,3 +123,33 @@ C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreap
 C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Moq.dll
 C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\obj\Debug\netcoreapp3.1\BackendTests.csproj.CoreCompileInputs.cache
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\appsettings.Production.json
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\appsettings.Staging.json
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.MyQandA-backend - Web Deploy.json
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\MyQandA-backend - Web Deploy\profile.arm.json
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\QAndAStaging - Web Deploy\profile.arm.json
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\roman\Desktop\Coding\Projects C#\QandA\BackendTests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
