@@ -10,7 +10,7 @@ jest.mock('./QuestionsData', () => ({
     return Promise.resolve([
       {
         questionId: 1,
-        title: 'Title1 test',
+        title: 'Title test',
         content: 'Content2 test',
         userName: 'User1',
         created: new Date(2019, 1, 1),
