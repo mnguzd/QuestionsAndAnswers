@@ -43,10 +43,6 @@ steps:
   workingDirectory: frontend
   displayName: 'frontend install dependencies'
 
-- script: npm run test:ci
-  workingDirectory: frontend
-  displayName: 'frontend tests'
-
 - script: npm run build:staging
   workingDirectory: frontend
   displayName: 'frontend staging build'
