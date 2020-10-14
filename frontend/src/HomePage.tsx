@@ -3,7 +3,7 @@ import { useEffect, useState, FC } from 'react';
 import { css, jsx } from '@emotion/core';
 import { PrimaryButton } from './Styles';
 import { QuestionList } from './QuestionList';
-import { getUnansweredQuestions, QuestionData } from './QuestionsData';
+import { getQuestions, QuestionData } from './QuestionsData';
 import { Page } from './Page';
 import { PageTitle } from './PageTitle';
 import { RouteComponentProps } from 'react-router-dom';
@@ -15,14 +15,14 @@ export const HomePage: FC<RouteComponentProps> = ({ history }) => {
 
   useEffect(() => {
     let cancelled = false;
-    const doGetUnansweredQuestions = async () => {
-      const unansweredQuestions = await getUnansweredQuestions();
+    const doGetQuestions = async () => {
+      const allQuestions = await getQuestions();
       if (!cancelled) {
-        setQuestions(unansweredQuestions);
+        setQuestions(allQuestions);
         setQuestionsLoading(false);
       }
     };
-    doGetUnansweredQuestions();
+    doGetQuestions();
     return () => {
       cancelled = true;
     };
@@ -43,7 +43,7 @@ export const HomePage: FC<RouteComponentProps> = ({ history }) => {
           justify-content: space-between;
         `}
       >
-        <PageTitle>Unanswered Questions</PageTitle>
+        <PageTitle>The list of questions</PageTitle>
         {isAuthenticated && (
           <PrimaryButton onClick={handleAskQuestionClick}>
             Ask a question

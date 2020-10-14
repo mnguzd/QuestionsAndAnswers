@@ -21,6 +21,8 @@ export const AnswerList: FC<Props> = ({ data }) => (
       <li
         css={css`
           border-top: 1px solid ${gray5};
+          border-bottom: 1px solid ${gray5};
+          margin-bottom: -1px;
         `}
         key={answer.answerId}
       >
