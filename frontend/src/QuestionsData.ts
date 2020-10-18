@@ -73,6 +73,22 @@ export const getQuestions = async (): Promise<QuestionData[] | null> => {
   }
 };
 
+export const deleteQuestion = async (question: QuestionDataFromServer) => {
+  try {
+    const accessToken = await getAccessToken();
+    const result = await http<'DELETE', null>({
+      path: `/questions/${question.questionId}`,
+      method: 'DELETE',
+      accessToken,
+    });
+    if (result.ok) {
+      return result.parsedBody;
+    }
+  } catch (ex) {
+    console.log(ex);
+  }
+};
+
 export const getQuestion = async (
   questionId: number,
 ): Promise<QuestionData | null> => {

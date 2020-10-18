@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Page } from './Page';
 import { Form, required, minLength, Values } from './Form';
 import { Field } from './Field';
 import { postQuestion } from './QuestionsData';
 
-export const AskPage = () => {
+export const AskPage: FC = () => {
   const handleSubmit = async (values: Values) => {
     const question = await postQuestion({
       title: values.title,
@@ -12,7 +12,6 @@ export const AskPage = () => {
       userName: 'Fred',
       created: new Date(),
     });
-
     return { success: question ? true : false };
   };
   return (

@@ -14,6 +14,9 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
   <div
     css={css`
       padding: 10px 0px;
+      overflow: hidden;
+      white-space: normal;
+      word-wrap: break-word;
     `}
   >
     <div
@@ -25,7 +28,7 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
       <Link
         css={css`
           text-decoration: none;
-          color: ${gray2};
+          color: ${gray3};
         `}
         to={`questions/${data.questionId}`}
       >
@@ -40,9 +43,7 @@ export const Question: FC<Props> = ({ data, showContent = true }) => (
           color: ${gray2};
         `}
       >
-        {data.content.length > 50
-          ? `${data.content.substring(0, 50)}...`
-          : data.content}
+        {data.content}
       </div>
     )}
     <div

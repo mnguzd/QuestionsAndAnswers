@@ -12,6 +12,7 @@ export const Answer: FC<Props> = ({ data }) => (
   <div
     css={css`
       padding: 10px 0px;
+      word-wrap: break-word;
     `}
   >
     <div

@@ -7,6 +7,7 @@ import {
   postAnswer,
   mapQuestionFromServer,
   QuestionDataFromServer,
+  deleteQuestion,
 } from './QuestionsData';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
@@ -21,12 +22,14 @@ import {
 } from '@aspnet/signalr';
 import { server } from './AppSettings';
 import { useAuth } from './Auth';
+import { PrimaryButton } from './Styles';
 
 interface RouteParams {
   questionId: string;
 }
 export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
   match,
+  history,
 }) => {
   const [question, setQuestion] = useState<QuestionData | null>(null);
 
@@ -55,7 +58,6 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
         return console.error(err.toString());
       });
     }
-
     return connection;
   };
 
@@ -111,12 +113,18 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
       userName: 'Fred',
       created: new Date(),
     });
-
     return { success: result ? true : false };
   };
-
+  const handleActionClick = async () => {
+    if (question != null) {
+      await deleteQuestion(question).then(() => history.push('/home'));
+      console.log('deleted', question.questionId);
+    } else {
+      console.log('error with deleting');
+    }
+  };
+  const { user } = useAuth();
   const { isAuthenticated } = useAuth();
-
   return (
     <Page>
       <div
@@ -133,6 +141,7 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
             font-size: 19px;
             font-weight: bold;
             margin: 10px 0px 5px;
+            word-wrap: break-word;
           `}
         >
           {question === null ? '' : question.title}
@@ -143,6 +152,7 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
               css={css`
                 margin-top: 0px;
                 background-color: white;
+                word-wrap: break-word;
               `}
             >
               {question.content}
@@ -159,6 +169,13 @@ export const QuestionPage: FC<RouteComponentProps<RouteParams>> = ({
           ${question.created.toLocaleTimeString()}`}
             </div>
             <AnswerList data={question.answers} />
+            {isAuthenticated &&
+              user !== undefined &&
+              user.name === question.userName && (
+                <PrimaryButton onClick={handleActionClick}>
+                  Delete
+                </PrimaryButton>
+              )}
             {isAuthenticated && (
               <div
                 css={css`
