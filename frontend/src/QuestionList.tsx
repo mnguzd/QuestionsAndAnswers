@@ -16,6 +16,7 @@ export const QuestionList: FC<Props> = ({ data }) => {
       css={css`
         list-style: none;
         margin-top: 10px;
+        padding-inline-start: 0px;
       `}
     >
       {data.map(question => (

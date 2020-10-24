@@ -1,7 +1,6 @@
 import { useEffect, useState, FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { PrimaryButton } from './Styles';
 import { QuestionList } from './QuestionList';
 import { getQuestions, QuestionData } from './QuestionsData';
 import { Page } from './Page';
@@ -55,7 +54,12 @@ export const HomePage: FC<RouteComponentProps> = ({ history }) => {
         )}
       </div>
       {questionsLoading ? (
-        <div className="d-flex justify-content-center">
+        <div
+          className="d-flex justify-content-center"
+          css={css`
+            margin-top: 30px;
+          `}
+        >
           <div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>
           </div>

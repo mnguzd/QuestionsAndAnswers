@@ -49,40 +49,30 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
   const { isAuthenticated, user, loading } = useAuth();
 
   return (
-    <nav className="navbar navbar-expand-md fixed-top navbar-light bg-light shadow-sm">
-      <div>
-        <StyledLink
-          className="navbar-brand"
-          to="/"
-          css={css`
-            font-size: 24px;
-            font-weight: bold;
-            color: ${gray1};
-          `}
-        >
-          Q & A
-        </StyledLink>
-        <span
-          css={css`
-            margin-left: 10px;
-            font-size: 16px;
-            color: ${gray2};
-          `}
-        >
-          {process.env.REACT_APP_ENV == null ? 'development' : null}
-        </span>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-      </div>
+    <nav className="navbar navbar-expand-md navbar-toggleable-md fixed-top navbar-light bg-light shadow-sm">
+      <StyledLink
+        className="navbar-brand"
+        to="/"
+        css={css`
+          font-size: 24px;
+          font-weight: bold;
+          color: ${gray1};
+        `}
+      >
+        Q & A
+      </StyledLink>
+      <button
+        className="navbar-toggler navbar-toggler-right"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <form className="form-inline mx-auto" onSubmit={handleSearchSubmit}>
           <div className="input-group">
@@ -100,24 +90,26 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
             />
           </div>
         </form>
-        {!loading &&
-          (isAuthenticated ? (
-            <div>
-              <span>{user!.name}</span>
-              <StyledLink
-                to={{ pathname: '/signout', state: { local: true } }}
-                css={buttonStyle}
-              >
+        <div>
+          {!loading &&
+            (isAuthenticated ? (
+              <div>
+                <span>{user!.name}</span>
+                <StyledLink
+                  to={{ pathname: '/signout', state: { local: true } }}
+                  css={buttonStyle}
+                >
+                  <UserIcon />
+                  <span>Sign Out</span>
+                </StyledLink>
+              </div>
+            ) : (
+              <StyledLink to="/signin" css={buttonStyle}>
                 <UserIcon />
-                <span>Sign Out</span>
+                <span>Sign In</span>
               </StyledLink>
-            </div>
-          ) : (
-            <StyledLink to="/signin" css={buttonStyle}>
-              <UserIcon />
-              <span>Sign In</span>
-            </StyledLink>
-          ))}
+            ))}
+        </div>
       </div>
     </nav>
   );

@@ -3,7 +3,7 @@ import { HeaderWithRouter as Header } from './Header';
 import { HomePage } from './HomePage';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray2, gray5, gray6 } from './Styles';
+import { fontFamily, fontSize, gray2 } from './Styles';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { SearchPage } from './SearchPage';
 import { SignInPage } from './SignInPage';
