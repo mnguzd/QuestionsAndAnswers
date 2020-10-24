@@ -2,9 +2,17 @@ import { ChangeEvent, FC, useState, FormEvent } from 'react';
 import { UserIcon } from './Icons';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import {
+  fontFamily,
+  fontSize,
+  gray1,
+  gray2,
+  gray5,
+  StyledLink,
+} from './Styles';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { useAuth } from './Auth';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const buttonStyle = css`
   border: none;
@@ -41,33 +49,19 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
   const { isAuthenticated, user, loading } = useAuth();
 
   return (
-    <div
-      css={css`
-        position: fixed;
-        box-sizing: border-box;
-        top: 0;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        background-color: #fff;
-        border-bottom: 1px solid ${gray5};
-        box-shadow: 0 3px 7px 0 rgba(110, 112, 114, 0.21);
-      `}
-    >
+    <nav className="navbar navbar-expand-md fixed-top navbar-light bg-light shadow-sm">
       <div>
-        <Link
+        <StyledLink
+          className="navbar-brand"
           to="/"
           css={css`
             font-size: 24px;
             font-weight: bold;
             color: ${gray1};
-            text-decoration: none;
           `}
         >
           Q & A
-        </Link>
+        </StyledLink>
         <span
           css={css`
             margin-left: 10px;
@@ -75,51 +69,57 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
             color: ${gray2};
           `}
         >
-          {process.env.REACT_APP_ENV || 'development'}
+          {process.env.REACT_APP_ENV == null ? 'development' : null}
         </span>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
       </div>
-      <form onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          placeholder="Search..."
-          onChange={handleSearchInputChange}
-          value={search}
-          css={css`
-            box-sizing: border-box;
-            font-family: ${fontFamily};
-            font-size: ${fontSize};
-            padding: 8px 10px;
-            border: 1px solid ${gray5};
-            border-radius: 3px;
-            color: ${gray2};
-            background-color: white;
-            width: 200px;
-            height: 30px;
-            :focus {
-              outline-color: ${gray5};
-            }
-          `}
-        />
-      </form>
-      {!loading &&
-        (isAuthenticated ? (
-          <div>
-            <span>{user!.name}</span>
-            <Link
-              to={{ pathname: '/signout', state: { local: true } }}
-              css={buttonStyle}
-            >
-              <UserIcon />
-              <span>Sign Out</span>
-            </Link>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <form className="form-inline mx-auto" onSubmit={handleSearchSubmit}>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <button className="btn btn-outline-secondary" type="submit">
+                Search
+              </button>
+            </div>
+            <input
+              className="form-control"
+              type="search"
+              placeholder="type keywords"
+              onChange={handleSearchInputChange}
+              value={search}
+            />
           </div>
-        ) : (
-          <Link to="/signin" css={buttonStyle}>
-            <UserIcon />
-            <span>Sign In</span>
-          </Link>
-        ))}
-    </div>
+        </form>
+        {!loading &&
+          (isAuthenticated ? (
+            <div>
+              <span>{user!.name}</span>
+              <StyledLink
+                to={{ pathname: '/signout', state: { local: true } }}
+                css={buttonStyle}
+              >
+                <UserIcon />
+                <span>Sign Out</span>
+              </StyledLink>
+            </div>
+          ) : (
+            <StyledLink to="/signin" css={buttonStyle}>
+              <UserIcon />
+              <span>Sign In</span>
+            </StyledLink>
+          ))}
+      </div>
+    </nav>
   );
 };
 

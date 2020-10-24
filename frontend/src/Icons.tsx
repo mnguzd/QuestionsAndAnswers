@@ -7,7 +7,7 @@ export const UserIcon = () => (
     src={user}
     alt="User"
     css={css`
-      width: 12px;
+      width: 17px;
       opacity: 0.6;
     `}
   />

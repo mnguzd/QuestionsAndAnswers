@@ -1,40 +1,31 @@
 import { FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { gray5, accent2 } from './Styles';
 import { QuestionData } from './QuestionsData';
 import { Question } from './Question';
+import 'bootstrap/dist/css/bootstrap.css';
 
 interface Props {
   data: QuestionData[];
   renderItem?: (item: QuestionData) => JSX.Element;
 }
 
-export const QuestionList: FC<Props> = ({ data, renderItem }) => {
+export const QuestionList: FC<Props> = ({ data }) => {
   return (
     <ul
       css={css`
         list-style: none;
-        margin: 10px 0 0 0;
-        padding: 0px 20px;
-        background-color: #fff;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-top: 3px solid ${accent2};
-        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
+        margin-top: 10px;
       `}
     >
       {data.map(question => (
         <li
           key={question.questionId}
           css={css`
-            border-top: 1px solid ${gray5};
-            :first-of-type {
-              border-top: none;
-            }
+            margin-bottom: 10px;
           `}
         >
-          {renderItem ? renderItem(question) : <Question data={question} />}
+          <Question data={question} />
         </li>
       ))}
     </ul>

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const gray1 = '#383737';
 export const gray2 = '#5c5a5a';
@@ -35,6 +36,17 @@ export const PrimaryButton = styled.button`
   :disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+`;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: inherit;
   }
 `;
 

@@ -5,7 +5,6 @@ import { PrimaryButton } from './Styles';
 import { QuestionList } from './QuestionList';
 import { getQuestions, QuestionData } from './QuestionsData';
 import { Page } from './Page';
-import { PageTitle } from './PageTitle';
 import { RouteComponentProps } from 'react-router-dom';
 import { useAuth } from './Auth';
 
@@ -36,28 +35,30 @@ export const HomePage: FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <Page>
-      <div
-        css={css`
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        `}
-      >
-        <PageTitle>The list of questions</PageTitle>
-        {isAuthenticated && (
-          <PrimaryButton onClick={handleAskQuestionClick}>
-            Ask a question
-          </PrimaryButton>
+      <div className="row">
+        {isAuthenticated ? (
+          <div className="d-flex col-12 justify-content-center">
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={handleAskQuestionClick}
+            >
+              Ask a question
+            </button>
+          </div>
+        ) : (
+          <div className="d-flex col-12 justify-content-center">
+            <button type="button" className="btn btn-secondary" disabled>
+              Log in to ask a question
+            </button>
+          </div>
         )}
       </div>
       {questionsLoading ? (
-        <div
-          css={css`
-            font-size: 16px;
-            font-style: italic;
-          `}
-        >
-          Loading...
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
         </div>
       ) : (
         <QuestionList data={questions || []} />

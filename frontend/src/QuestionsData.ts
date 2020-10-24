@@ -57,7 +57,7 @@ export const getUnansweredQuestions = async (): Promise<QuestionData[]> => {
 export const getQuestions = async (): Promise<QuestionData[] | null> => {
   try {
     const result = await http<undefined, QuestionDataFromServer[]>({
-      path: `/questions`,
+      path: `/questions?includeanswers=true`,
     });
     if (result.ok && result.parsedBody) {
       let questions: QuestionData[] = [];

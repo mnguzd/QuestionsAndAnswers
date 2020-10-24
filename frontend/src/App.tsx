@@ -3,7 +3,7 @@ import { HeaderWithRouter as Header } from './Header';
 import { HomePage } from './HomePage';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray2 } from './Styles';
+import { fontFamily, fontSize, gray2, gray5, gray6 } from './Styles';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { SearchPage } from './SearchPage';
 import { SignInPage } from './SignInPage';
@@ -12,6 +12,7 @@ import { NotFoundPage } from './NotFoundPage';
 import { QuestionPage } from './QuestionPage';
 import { AuthProvider } from './Auth';
 import { AuthorizedPage } from './AuthorizedPage';
+import 'bootstrap/dist/css/bootstrap.css';
 const AskPage = lazy(() => import('./AskPage'));
 
 const App: React.FC = () => {
@@ -33,13 +34,8 @@ const App: React.FC = () => {
             <Route path="/ask">
               <Suspense
                 fallback={
-                  <div
-                    css={css`
-                      margin-top: 100px;
-                      text-align: center;
-                    `}
-                  >
-                    Loading...
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="sr-only">Loading...</span>
                   </div>
                 }
               >
