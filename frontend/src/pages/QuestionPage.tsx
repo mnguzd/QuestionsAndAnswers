@@ -8,21 +8,21 @@ import {
   mapQuestionFromServer,
   QuestionDataFromServer,
   deleteQuestion,
-} from './QuestionsData';
+} from '../data/QuestionsData';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { gray3, gray6 } from './Styles';
-import { AnswerList } from './AnswerList';
-import { Form, required, minLength, Values } from './Form';
-import { Field } from './Field';
+import { gray3, gray6 } from '../Styles';
+import { AnswerList } from '../components/Answers/AnswerList';
+import { Form, required, minLength, Values } from '../components/Form/Form';
+import { Field } from '../components/Form/Field';
 import {
   HubConnectionBuilder,
   HubConnectionState,
   HubConnection,
 } from '@aspnet/signalr';
-import { server } from './AppSettings';
-import { useAuth } from './Auth';
-import { PrimaryButton } from './Styles';
+import { server } from '../AppSettings';
+import { useAuth } from '../data/Auth';
+import { PrimaryButton } from '../Styles';
 
 interface RouteParams {
   questionId: string;

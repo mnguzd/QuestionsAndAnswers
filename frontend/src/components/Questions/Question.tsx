@@ -1,8 +1,8 @@
 import { FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { QuestionData } from './QuestionsData';
-import { gray2, gray3, StyledLink } from './Styles';
+import { QuestionData } from '../../data/QuestionsData';
+import { gray2, gray3, StyledLink } from '../../Styles';
 import 'bootstrap/dist/css/bootstrap.css';
 
 interface Props {

@@ -1,6 +1,6 @@
 import React, { FC, Fragment } from 'react';
 import { Page } from './Page';
-import { useAuth } from './Auth';
+import { useAuth } from '../data/Auth';
 
 export const AuthorizedPage: FC = ({ children }) => {
   const { isAuthenticated } = useAuth();

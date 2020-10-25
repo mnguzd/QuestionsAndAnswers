@@ -1,11 +1,11 @@
 import { useEffect, useState, FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { QuestionList } from './QuestionList';
-import { getQuestions, QuestionData } from './QuestionsData';
+import { QuestionList } from '../components/Questions/QuestionList';
+import { getQuestions, QuestionData } from '../data/QuestionsData';
 import { Page } from './Page';
 import { RouteComponentProps } from 'react-router-dom';
-import { useAuth } from './Auth';
+import { useAuth } from '../data/Auth';
 
 export const HomePage: FC<RouteComponentProps> = ({ history }) => {
   const [questions, setQuestions] = useState<QuestionData[] | null>(null);

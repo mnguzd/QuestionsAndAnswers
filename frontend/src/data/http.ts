@@ -1,4 +1,4 @@
-import { webAPIUrl } from './AppSettings';
+import { webAPIUrl } from '../AppSettings';
 
 export interface HttpRequest<REQB> {
   path: string;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Page } from './Page';
-import { StatusText } from './Styles';
-import { useAuth } from './Auth';
+import { StatusText } from '../Styles';
+import { useAuth } from '../data/Auth';
 
 type SigninAction = 'signin' | 'signin-callback';
 

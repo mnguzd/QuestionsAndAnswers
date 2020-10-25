@@ -1,7 +1,7 @@
 import { FC, useContext, ChangeEvent } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { fontFamily, fontSize, gray5, gray2, gray6 } from './Styles';
+import { fontFamily, fontSize, gray5, gray2, gray6 } from '../../Styles';
 import { FormContext } from './Form';
 
 interface Props {

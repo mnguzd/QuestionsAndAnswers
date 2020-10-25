@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { authSettings } from './AppSettings';
+import { authSettings } from '../AppSettings';
 
 interface Auth0User {
   name: string;

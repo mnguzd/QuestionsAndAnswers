@@ -1,8 +1,8 @@
 import { FC, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { Page } from './Page';
-import { QuestionList } from './QuestionList';
-import { searchQuestions, QuestionData } from './QuestionsData';
+import { QuestionList } from '../components/Questions/QuestionList';
+import { searchQuestions, QuestionData } from '../data/QuestionsData';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 

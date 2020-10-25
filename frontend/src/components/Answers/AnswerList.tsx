@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { AnswerData } from './QuestionsData';
+import { AnswerData } from '../../data/QuestionsData';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { Answer } from './Answer';
-import { gray5 } from './Styles';
+import { gray5 } from '../../Styles';
 
 interface Props {
   data: AnswerData[];

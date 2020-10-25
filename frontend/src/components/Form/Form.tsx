@@ -1,5 +1,5 @@
 import { FC, useState, createContext, FormEvent } from 'react';
-import { PrimaryButton, gray5, gray6 } from './Styles';
+import { PrimaryButton, gray5, gray6 } from '../../Styles';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 

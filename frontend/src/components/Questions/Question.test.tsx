@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import { QuestionData } from './QuestionsData';
+import { QuestionData } from '../../data/QuestionsData';
 import { Question } from './Question';
 import { BrowserRouter } from 'react-router-dom';
 

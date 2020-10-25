@@ -1,7 +1,7 @@
 import { FC } from 'react';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { QuestionData } from './QuestionsData';
+import { QuestionData } from '../../data/QuestionsData';
 import { Question } from './Question';
 import 'bootstrap/dist/css/bootstrap.css';
 

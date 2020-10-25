@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Page } from './Page';
-import { Form, required, minLength, Values } from './Form';
-import { Field } from './Field';
-import { postQuestion } from './QuestionsData';
+import { Form, required, minLength, Values } from '../components/Form/Form';
+import { Field } from '../components/Form/Field';
+import { postQuestion } from '../data/QuestionsData';
 
 export const AskPage: FC = () => {
   const handleSubmit = async (values: Values) => {

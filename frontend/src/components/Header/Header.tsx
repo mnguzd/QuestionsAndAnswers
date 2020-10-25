@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState, FormEvent } from 'react';
-import { UserIcon } from './Icons';
+import { UserIcon } from '../../Icons';
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import {
@@ -9,9 +9,9 @@ import {
   gray2,
   gray5,
   StyledLink,
-} from './Styles';
+} from '../../Styles';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { useAuth } from './Auth';
+import { useAuth } from '../../data/Auth';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const buttonStyle = css`
